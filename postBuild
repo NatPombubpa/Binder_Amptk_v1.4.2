@@ -4,8 +4,6 @@ set -eux
 
 # make executable
 chmod +x usearch9.2.64_i86linux32
-# adding sym link as in docs: https://amptk.readthedocs.io/en/latest/#dependencies-requiring-manual-install
-ln -s ~/usearch9.2.64_i86linux32 /usr/local/bin/usearch9
 
 # install database
 amptk install -i ITS
