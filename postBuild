@@ -1,0 +1,20 @@
+  
+#!/bin/bash
+set -eux
+
+# make executable
+chmod +x usearch9.2.64_i86linux32
+# adding sym link as in docs: https://amptk.readthedocs.io/en/latest/#dependencies-requiring-manual-install
+ln -s ~/usearch9.2.64_i86linux32 /usr/local/bin/usearch9
+
+# install database
+amptk install -i ITS
+
+### below workaround from @fomightez: https://github.com/fomightez/modelit-binder/blob/master/binder/postBuild
+# Upon addition of Jupytext, I was seeing it want to build when session launched. Seems
+# explained at https://jupytext.readthedocs.io/en/latest/install.html#jupytext-commands-in-jupyterlab
+# >"The Jupytext extension for JupyterLab is bundled with Jupytext. Installing Jupytext will trigger a build of JupyterLab the next time you open it. If you prefer, you can trigger the build manually with `jupyter lab build`"
+# Running that here to avoid it showing pop-up at launch.
+jupyter lab build
+
+
