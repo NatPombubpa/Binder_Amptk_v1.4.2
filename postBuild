@@ -3,7 +3,8 @@
 set -eux
 
 # make executable
-chmod +x ~/bin/usearch9
+# chmod +x ~/bin/usearch9
+mkdir ~/bin
 
 # install database
 amptk install -i ITS
